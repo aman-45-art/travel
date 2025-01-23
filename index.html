@@ -6,6 +6,8 @@
     <title>Explore India</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS for animation on scroll -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
         body {
             position: relative; /* Required for ScrollSpy */
@@ -20,7 +22,7 @@
         .navbar {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-       #destinations .card {
+        #destinations .card {
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -42,6 +44,54 @@
             width: 100%;
             border-radius: 5px;
         }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Slide-up animation */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s forwards;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scale-up animation */
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleUp 1s forwards;
+        }
+
+        @keyframes scaleUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarScrollSpy" data-bs-offset="70" tabindex="0">
@@ -66,7 +116,7 @@
     <div id="destinationCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://github.com/irfan95sayyad/Travel/blob/main/Taj-Mahal.jpg?raw=true" class="d-block w-100" alt="Taj Mahal">
+                <img src="https://tripmore.in/wp-content/uploads/2024/07/Tajmahal.png" class="d-block w-100" alt="Taj Mahal">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 style="color: #f8f9fa; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Taj Mahal</h5>
                     <p style="color: #f8f9fa; text-shadow: 4px 4px 7px rgba(11, 11, 11, 0.7);">
@@ -100,7 +150,7 @@
     </div>
 
     <!-- About Us Section -->
-    <section id="about-us" class="bg-light">
+    <section id="about-us" class="bg-light fade-in" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center">About Us</h2>
             <p class="text-center">We help you explore the wonders of India, from historical landmarks to natural beauty. Join us to experience the cultural richness and scenic landscapes of India.</p>
@@ -108,12 +158,12 @@
     </section>
 
     <!-- Destinations Section -->
-    <section id="destinations">
+    <section id="destinations" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center">Destinations</h2>
             <div class="row mt-4">
-                <!-- Existing Destinations -->
-                <div class="col-md-4 mb-4">
+                <!-- Taj Mahal -->
+                <div class="col-md-4 mb-4 slide-up" data-aos="fade-up">
                     <div class="card">
                         <img src="https://agrasmartcity.in/wp-content/uploads/2024/02/g1-1.jpg" class="card-img-top" alt="Taj Mahal">
                         <div class="card-body">
@@ -123,7 +173,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <!-- Kerala -->
+                <div class="col-md-4 mb-4 slide-up" data-aos="fade-up">
                     <div class="card">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkIE9TBh_bq4O_SXTEd83TYbOOTDAiePpxAw&s" class="card-img-top" alt="Kerala">
                         <div class="card-body">
@@ -133,7 +184,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <!-- Rajasthan -->
+                <div class="col-md-4 mb-4 slide-up" data-aos="fade-up">
                     <div class="card">
                         <img src="https://s3.india.com/wp-content/uploads/2024/07/Jaipur-For-Honeymoon.jpg" class="card-img-top" alt="Rajasthan">
                         <div class="card-body">
@@ -143,34 +195,35 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- New Destinations -->
-                <div class="col-md-4 mb-4">
+                <!-- Goa -->
+                <div class="col-md-4 mb-4 slide-up" data-aos="fade-up">
                     <div class="card">
-                        <img src="https://s7ap1.scene7.com/is/image/incredibleindia/howrah-bridge-howrah-west-bengal-city-1-hero?qlt=82&ts=1726644778421" class="card-img-top" alt="Kolkata">
+                        <img src="https://www.livemint.com/lm-img/img/2024/12/30/1600x900/where_to_eat_in_goa_after_partying_1735548808689_1735548815198.jpg" class="card-img-top" alt="Goa">
                         <div class="card-body">
-                            <h5 class="card-title">Kolkata</h5>
-                            <p class="card-text">3 nights and 4 days exploring the City of Joy.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kolkataModal">More Info</button>
+                            <h5 class="card-title">Goa</h5>
+                            <p class="card-text">4 nights and 5 days in the beach paradise.</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#goaModal">More Info</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <!-- Varanasi -->
+                <div class="col-md-4 mb-4 slide-up" data-aos="fade-up">
                     <div class="card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm7Lsvpx2CgploKAnokW-GqLXWSkI07dBPiQ&s" class="card-img-top" alt="Varanasi">
+                        <img src="https://static.toiimg.com/thumb/100273065/Varanasi.jpg?width=1200&height=900" class="card-img-top" alt="Varanasi">
                         <div class="card-body">
                             <h5 class="card-title">Varanasi</h5>
-                            <p class="card-text">2 nights and 3 days by the sacred Ganges.</p>
+                            <p class="card-text">2 nights and 3 days on the banks of the Ganges.</p>
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#varanasiModal">More Info</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <!-- Ladakh -->
+                <div class="col-md-4 mb-4 slide-up" data-aos="fade-up">
                     <div class="card">
-                        <img src="https://arunsaha.com/wp-content/uploads/sites/53/2023/04/6069THUMNAIL.jpg" class="card-img-top" alt="Ladakh">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XGLgZF4q86hpokerVpeelDcPiViHXWm8f4kdTJtrjHCRjPGXsNs01ReVL3qG2p-OZNo&usqp=CAU" class="card-img-top" alt="Ladakh">
                         <div class="card-body">
                             <h5 class="card-title">Ladakh</h5>
-                            <p class="card-text">5 nights and 6 days of Himalayan adventure.</p>
+                            <p class="card-text">5 nights and 6 days amidst stunning mountain ranges.</p>
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ladakhModal">More Info</button>
                         </div>
                     </div>
@@ -180,23 +233,24 @@
     </section>
 
     <!-- Contact Us Section -->
-    <section id="contact-us" class="bg-light">
+    <section id="contact-us" class="bg-light fade-in" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center">Contact Us</h2>
-            <p class="text-center">Email us at <a href="mailto:info@exploreindia.com">info@exploreindia.com</a> or call us at +91 9876543210.</p>
+            <p class="text-center">Email us at <a href="mailto:info@exploreindia.com">exploreindia.com</a> or call us at +91 9523659003.</p>
         </div>
     </section>
 
-    <!-- Modals for New Destinations -->
-    <div class="modal fade" id="kolkataModal" tabindex="-1" aria-labelledby="kolkataModalLabel" aria-hidden="true">
+    <!-- Modals -->
+    <!-- Goa Modal -->
+    <div class="modal fade" id="goaModal" tabindex="-1" aria-labelledby="goaModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="kolkataModalLabel">Kolkata Package</h5>
+                    <h5 class="modal-title" id="goaModalLabel">Goa Package</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Discover the heritage of Kolkata, including the Howrah Bridge, Indian Museum, and the mesmerizing ghats of the Hooghly River.
+                    Enjoy the pristine beaches of Goa, vibrant nightlife, and Portuguese-influenced architecture. This package includes beach activities, sightseeing tours, and relaxation by the Arabian Sea.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -205,6 +259,7 @@
         </div>
     </div>
 
+    <!-- Varanasi Modal -->
     <div class="modal fade" id="varanasiModal" tabindex="-1" aria-labelledby="varanasiModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -213,7 +268,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Immerse yourself in the spiritual heart of India, visit the ghats of Varanasi, and experience the rituals and culture of this ancient city.
+                    Experience the spiritual heart of India in Varanasi. Explore the sacred ghats, temples, and witness the mesmerizing Ganga Aarti. This package includes visits to Kashi Vishwanath Temple, Sarnath, and boat rides on the Ganges.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -222,6 +277,7 @@
         </div>
     </div>
 
+    <!-- Ladakh Modal -->
     <div class="modal fade" id="ladakhModal" tabindex="-1" aria-labelledby="ladakhModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -230,7 +286,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Explore the rugged beauty of Ladakh, visit Leh, Pangong Lake, and take part in thrilling adventures like biking and trekking in the Himalayas.
+                    Explore the rugged landscapes of Ladakh with its breathtaking mountains, monasteries, and lakes. This package includes visits to Pangong Lake, Nubra Valley, and Leh, along with cultural experiences in Buddhist monasteries.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -241,5 +297,14 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS for scroll animations -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            easing: 'ease-out-back', // Easing for the animation
+            once: true // Trigger animation only once
+        });
+    </script>
 </body>
 </html>
